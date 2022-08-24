@@ -29,7 +29,6 @@ const SingleCountry = () => {
         <h2>
           {latlng[0]},{latlng[1]},{name.common}
         </h2>
-        <p>Takes 10m to cook.</p>
       </>
     </div>
   );

@@ -2,6 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import styles from "./CountryCard.module.css";
+import Card from "react-bootstrap/Card";
+import { ListGroup } from "react-bootstrap";
 
 const CountryCard = ({ country }) => {
   const {
@@ -16,37 +18,50 @@ const CountryCard = ({ country }) => {
   } = country;
 
   return (
-    <div className={styles.card}>
-      <img src={flags.png} alt="flag" />
-      <h3>{name.common}</h3>
-      <h4>State name</h4>
+    <Card
+      className={styles.Card}
+      style={{ width: "18rem", backgroundColor: "white" }}
+    >
+      <Card.Img
+        src={flags.png}
+        alt="flag"
+        style={{ width: "5rem", height: "2.5rem", float: "right" }}
+      />
+
+      <Card.Title style={{ fontSize: "1.5rem" }}>{name.common}</Card.Title>
+      <h6>{capital}</h6>
       <div className="flex">
         <div>
-          <ul>
+          <ListGroup variant="flush">
             {Object.values(languages || {}).map((language) => (
-              <li key={language}>{language}</li>
+              <ListGroup.Item key={language}>{language}</ListGroup.Item>
             ))}
-          </ul>
+          </ListGroup>
         </div>
         <div>
-          <ul>
+          <ListGroup variant="flush">
             {Object.values(currencies || {}).map((cur) =>
-              typeof cur !== "object" ? "" : <li key={cur.name}>{cur.name}</li>
+              typeof cur !== "object" ? (
+                ""
+              ) : (
+                <ListGroup.Item key={cur.name}>{cur.name}</ListGroup.Item>
+              )
             )}
             ;
-          </ul>
+          </ListGroup>
         </div>
-        <p>{population}</p>
+        <div>{population}</div>
       </div>
       <Link
         to={{
           pathname: `/countriesList/${cca3}`,
         }}
         state={country}
+        variant="primary"
       >
         See More
       </Link>
-    </div>
+    </Card>
   );
 };
 

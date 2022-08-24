@@ -1,7 +1,21 @@
 .recipeList {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 40px;
   max-width: 1200px;
   margin: 40px auto;
+}
+
+.containerSearch {
+  text-align: center;
+}
+h4 {
+  margin-top: 2rem;
+  text-align: center;
+  visibility: hidden;
+}
+.search {
+  margin: auto;
+  max-width: 25rem;
+  height: 2rem;
 }

@@ -4,6 +4,7 @@ import Layout from "./pages/Layout";
 import Home from "./components/Home";
 import CountriesList from "./components/CountriesList";
 import SingleCountry from "./components/SingleCountry";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
