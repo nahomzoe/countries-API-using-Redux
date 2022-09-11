@@ -1,6 +1,12 @@
 import React from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import {
+  initializeCountries,
+  search,
+} from "../features/countries/countriesSlice";
 import styles from "./CountriesList.module.css";
 import CountryCard from "./CountryCard";
 import Button from "react-bootstrap/Button";
@@ -8,25 +14,24 @@ import Spinner from "react-bootstrap/Spinner";
 import Form from "react-bootstrap/Form";
 
 const CountriesList = () => {
-  const [countries, setCountries] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [searchBox, setSearchBox] = useState("");
+  // const [countries, setCountries] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [searchBox, setSearchBox] = useState("");
+
+  const dispatch = useDispatch();
+  const countriesList = useSelector((state) => state.countries.countries);
+  const loading = useSelector((state) => state.countries.isLoading);
+  const searchInput = useSelector((state) => state.countries.search);
 
   useEffect(() => {
-    axios
-      .get("https://restcountries.com/v3.1/all")
-      .catch((error) => console.log(error))
-      .then((res) => {
-        console.log(res.data);
-        setCountries(res.data);
-        setLoading(false);
-      });
-  }, []);
+    dispatch(initializeCountries());
+  }, [dispatch]);
+
   //   countries.filter((languages) => {
   //     console.log(languages);
   //   });
-  const search = (e) => {
-    setSearchBox(e.target.value);
+  const searchfunc = (e) => {
+    dispatch(search(e.target.value));
   };
 
   return (
@@ -55,7 +60,7 @@ const CountriesList = () => {
           name="search"
           placeholder="Search..."
           className="search"
-          onChange={search}
+          onChange={searchfunc}
         />
         <Form.Text className="text-muted">
           Search your location for detail info.
@@ -64,13 +69,13 @@ const CountriesList = () => {
 
       <div className={styles.recipeList}>
         {!loading ? (
-          countries &&
-          countries
+          countriesList &&
+          countriesList
             .filter((country) => {
               if (
                 country.name.common
                   .toLowerCase()
-                  .includes(searchBox.toLowerCase().trim())
+                  .includes(searchInput.toLowerCase().trim())
               ) {
                 return country;
               }
