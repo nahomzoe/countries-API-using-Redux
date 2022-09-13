@@ -26,6 +26,7 @@ const CountriesList = () => {
   useEffect(() => {
     dispatch(initializeCountries());
   }, [dispatch]);
+  console.log(countriesList);
 
   //   countries.filter((languages) => {
   //     console.log(languages);
@@ -67,7 +68,7 @@ const CountriesList = () => {
         </Form.Text>
       </Form.Group>
 
-      <div className={styles.recipeList}>
+      <div className={styles.countriesList}>
         {!loading ? (
           countriesList &&
           countriesList

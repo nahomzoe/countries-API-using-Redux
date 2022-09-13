@@ -4,6 +4,7 @@ import Layout from "./pages/Layout";
 import Home from "./components/Home";
 import CountriesList from "./components/CountriesList";
 import SingleCountry from "./components/SingleCountry";
+import FavList from "./components/FavList";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="countriesList" element={<CountriesList />} />
           <Route path="countriesList/:id" element={<SingleCountry />} />
+          <Route path="favList" element={<FavList />} />
         </Route>
       </Routes>
     </BrowserRouter>

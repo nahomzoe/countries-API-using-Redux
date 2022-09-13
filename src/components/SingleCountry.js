@@ -25,7 +25,11 @@ const SingleCountry = () => {
   return (
     <div className={styles.recipe}>
       <>
-        {weather && <h3>{weather.main.temp}</h3>}
+        {weather && (
+          <h3>
+            The weather in {name.common} is {weather.main.temp}
+          </h3>
+        )}
         <h2>
           {latlng[0]},{latlng[1]},{name.common}
         </h2>

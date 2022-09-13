@@ -21,9 +21,9 @@
 }
 .Card div {
   color: #555;
-  font-size: 0.7em;
+  font-size: 0.8 rem;
   margin: 20px 0;
-  line-height: 1.5em;
+  /* line-height: 1.5em; */
 }
 .Card a {
   color: #555;

@@ -4,6 +4,7 @@ export const countriesSlice = createSlice({
   name: "countries",
   initialState: {
     countries: [],
+    // favorites:[],
     isLoading: true,
     search: "",
   },
@@ -11,6 +12,9 @@ export const countriesSlice = createSlice({
     getCountires(state, action) {
       state.countries = action.payload;
     },
+    // getFavorites(state, action) {
+    //   state.favorites = action.payload;
+    // },
     isLoading(state, action) {
       state.isLoading = action.payload;
     },
