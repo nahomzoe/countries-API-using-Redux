@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import getAll from "../../services/favorites";
 export const favoritesSlice = createSlice({
   name: "favorites",
   initialState: {
@@ -7,7 +8,9 @@ export const favoritesSlice = createSlice({
   },
   reducers: {
     addItem(state, action) {
-      return { ...state, favorites: state.favorites.concat(action.payload) };
+      let updatedFav = state.favorites.concat(action.payload);
+      localStorage.setItem("favorites", JSON.stringify(updatedFav));
+      return { ...state, favorites: updatedFav };
     },
 
     isLoading(state, action) {
@@ -15,14 +18,6 @@ export const favoritesSlice = createSlice({
     },
   },
 });
-
-// export const initializeFavorites = () => {
-//   return async (dispatch) => {
-//     const favorites = await favoritesService.getAll();
-//     dispatch(getFavorites(favorites));
-//     dispatch(isLoading(false));
-//   };
-// };
 
 export const { addItem, isLoading } = favoritesSlice.actions;
 

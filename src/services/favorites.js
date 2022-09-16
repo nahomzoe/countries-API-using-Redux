@@ -1,10 +1,10 @@
-import axios from "axios";
-
-const baseUrl = "../db.json";
-
-const getAll = async () => {
-  const response = await axios.get(baseUrl);
-  return response.data;
+const getAll = () => {
+  const response = JSON.parse(localStorage.getItem("favorites"));
+  // JSON.parse(response);
+  if (!response) {
+    response = [];
+  }
+  return response;
 };
 
-export default { getAll };
+export default getAll;

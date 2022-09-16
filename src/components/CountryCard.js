@@ -19,6 +19,8 @@ const CountryCard = ({ country }) => {
     flags,
   } = country;
   const dispatch = useDispatch();
+  const favoritesList = useSelector((state) => state.favorites.favorites);
+  // const isFav = favoritesList.find((item) => item.id === country.id);
 
   return (
     <Card
@@ -68,6 +70,7 @@ const CountryCard = ({ country }) => {
         }}
       >
         Love
+        {/* {isFav ? "Love" : "Remove"} */}
       </button>
     </Card>
   );

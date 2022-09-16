@@ -4,17 +4,11 @@ import CountryCard from "./CountryCard";
 import styles from "./FavList.module.css";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
-import { useEffect } from "react";
-// import { initializeFavorites } from "../features/favorites/favoritesSlice";
 
 const FavList = () => {
   const dispatch = useDispatch();
   const favoritesList = useSelector((state) => state.favorites.favorites);
   const loading = useSelector((state) => state.favorites.isLoading);
-
-  //   useEffect(() => {
-  //     dispatch(initializeFavorites());
-  //   }, [dispatch]);
 
   console.log(favoritesList);
   return (
