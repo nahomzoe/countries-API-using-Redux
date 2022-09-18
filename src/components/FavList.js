@@ -7,7 +7,7 @@ import Spinner from "react-bootstrap/Spinner";
 // import { initializeFavorites } from "../features/favorites/favoritesSlice";
 // import { useEffect } from "react";
 
-const FavList = () => {
+const FavList = ({ isLike }) => {
   const dispatch = useDispatch();
   const favoritesList = useSelector((state) => state.favorites.favorites);
   const loading = useSelector((state) => state.favorites.isLoading);

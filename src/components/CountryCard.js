@@ -5,9 +5,14 @@ import styles from "./CountryCard.module.css";
 import Card from "react-bootstrap/Card";
 import { ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../features/favorites/favoritesSlice";
+import { addItem, favoritesSlice } from "../features/favorites/favoritesSlice";
+import { removeItem } from "../features/favorites/favoritesSlice";
+import { useState } from "react";
+import { HeartSwitch } from "@anatoliygatt/heart-switch";
 
-const CountryCard = ({ country }) => {
+const CountryCard = ({ country, value }) => {
+  const [checked, setChecked] = useState(false);
+
   const {
     name,
     capital,
@@ -20,7 +25,7 @@ const CountryCard = ({ country }) => {
   } = country;
   const dispatch = useDispatch();
   const favoritesList = useSelector((state) => state.favorites.favorites);
-  // const isFav = favoritesList.find((item) => item.id === country.id);
+  const isFav = favoritesList.find((item) => item.cca3 === country.cca3);
 
   return (
     <Card
@@ -32,7 +37,6 @@ const CountryCard = ({ country }) => {
         alt="flag"
         style={{ width: "5rem", height: "2.5rem", float: "right" }}
       />
-
       <Card.Title style={{ fontSize: "1.5rem" }}>{name.common}</Card.Title>
       <h6>{capital}</h6>
       <div className="flex">
@@ -50,7 +54,6 @@ const CountryCard = ({ country }) => {
               <ListGroup.Item key={cur.name}>{cur.name}</ListGroup.Item>
             )
           )}
-          ;
         </ListGroup>
 
         {population}
@@ -64,14 +67,60 @@ const CountryCard = ({ country }) => {
       >
         See More
       </Link>
-      <button
-        onClick={() => {
-          dispatch(addItem(country));
-        }}
-      >
-        Love
-        {/* {isFav ? "Love" : "Remove"} */}
-      </button>
+      {!isFav && (
+        <HeartSwitch
+          size="md"
+          inactiveTrackFillColor="#cffafe"
+          inactiveTrackStrokeColor="#22d3ee"
+          activeTrackFillColor="red"
+          activeTrackStrokeColor="red"
+          inactiveThumbColor="#ecfeff"
+          activeThumbColor="#ecfeff"
+          checked={checked}
+          onChange={(event) => {
+            setChecked(event.target.checked);
+            dispatch(addItem(country));
+            window.location.reload(false);
+          }}
+        />
+      )}
+
+      {isFav && (
+        <HeartSwitch
+          size="md"
+          inactiveTrackFillColor="#cffafe"
+          inactiveTrackStrokeColor="#22d3ee"
+          activeTrackFillColor="red"
+          activeTrackStrokeColor="red"
+          inactiveThumbColor="#ecfeff"
+          activeThumbColor="#ecfeff"
+          checked={!checked}
+          onChange={(event) => {
+            setChecked(event.target.checked);
+            dispatch(removeItem(country));
+            window.location.reload(false);
+          }}
+        />
+      )}
+      {/* {!isFav && (
+        <button
+          onClick={() => {
+            dispatch(addItem(country)); //setIsLiked(true));
+          }}
+        >
+          Add
+        </button>
+      )}
+      :
+      {isFav && (
+        <button
+          onClick={() => {
+            dispatch(removeItem(country));
+          }}
+        >
+          Remove
+        </button>
+      )} */}
     </Card>
   );
 };

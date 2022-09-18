@@ -1,7 +1,5 @@
 import React from "react";
-import axios from "axios";
 import { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import {
   initializeCountries,
@@ -20,6 +18,7 @@ const CountriesList = () => {
 
   const dispatch = useDispatch();
   const countriesList = useSelector((state) => state.countries.countries);
+  const favoritesList = useSelector((state) => state.favorites.favorites);
   const loading = useSelector((state) => state.countries.isLoading);
   const searchInput = useSelector((state) => state.countries.search);
 
@@ -37,16 +36,6 @@ const CountriesList = () => {
 
   return (
     <div>
-      {/* <h4>Search for recipe</h4> */}
-      {/* <form className={styles.containerSearch}>
-        <input
-          type="text"
-          name="search"
-          placeholder="Search..."
-          className="search"
-          onChange={search}
-        />
-      </form> */}
       <Form.Group
         className="mb-1 col-md-8 offset-md-2"
         controlId="formBasicText"
@@ -67,6 +56,7 @@ const CountriesList = () => {
           Search your location for detail info.
         </Form.Text>
       </Form.Group>
+      <h2 className={styles.count}>{favoritesList.length}</h2>
 
       <div className={styles.countriesList}>
         {!loading ? (

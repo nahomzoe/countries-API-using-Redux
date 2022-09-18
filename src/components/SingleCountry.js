@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import styles from "./SingleCountry.module.css";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import CardActions from "@material-ui/core/CardActions";
+import { ListGroup } from "react-bootstrap";
 
 const SingleCountry = () => {
   let location = useLocation();
@@ -23,6 +29,41 @@ const SingleCountry = () => {
   }, [latlng]);
 
   return (
+    // <div style={{ margin: "2rem" }}>
+    //   <h1>How to use CardComponent in ReactJS?</h1>
+    //   <Card
+    //     style={{
+    //       width: 1300,
+    //       backgroundColor: "lightblue",
+    //     }}
+    //   >
+    //     <CardContent>
+    //       <Typography style={{ fontSize: 30 }} gutterBottom>
+    //         {name.common}
+    //       </Typography>
+    //       <Typography>
+    //         {weather && (
+    //           <h3 style={{ fontSize: 15 }}>
+    //             The weather in {name.common}
+    //             is {weather.main.temp}
+    //           </h3>
+    //         )}
+    //       </Typography>
+    //       <Typography
+    //         style={{
+    //           marginBottom: 12,
+    //         }}
+    //         color="textSecondary"
+    //       ></Typography>
+    //       <Typography variant="body2" component="p">
+    //         Stay Happy
+    //       </Typography>
+    //     </CardContent>
+    //     <CardActions>
+    //       <Button size="small">Stay Safe.....</Button>
+    //     </CardActions>
+    //   </Card>
+    // </div>
     <div className={styles.recipe}>
       <>
         {weather && (

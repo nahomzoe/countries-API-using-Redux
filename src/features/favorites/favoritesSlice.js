@@ -5,14 +5,21 @@ export const favoritesSlice = createSlice({
   name: "favorites",
   initialState: {
     favorites: getAll(),
+    // isLiked: false,
     // isLoading: true,
   },
   reducers: {
     addItem(state, action) {
       let updatedFav = state.favorites.concat(action.payload);
       localStorage.setItem("favorites", JSON.stringify(updatedFav));
-
       return { ...state, favorites: updatedFav };
+    },
+    removeItem(state, action) {
+      let filteredFav = state.favorites.filter(function(ele) {
+        return ele.cca3 != action.payload.cca3;
+      });
+      localStorage.setItem("favorites", JSON.stringify(filteredFav));
+      return { ...state, favorites: filteredFav };
     },
 
     isLoading(state, action) {
@@ -29,6 +36,6 @@ export const favoritesSlice = createSlice({
 //   };
 // };
 
-export const { addItem, isLoading } = favoritesSlice.actions;
+export const { addItem, removeItem, isLoading } = favoritesSlice.actions;
 
 export default favoritesSlice.reducer;
