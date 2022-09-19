@@ -36,6 +36,9 @@ const CountriesList = () => {
 
   return (
     <div>
+      <div className={styles.count}>
+        <h2 className={styles.counth2}>{favoritesList.length}</h2>
+      </div>
       <Form.Group
         className="mb-1 col-md-8 offset-md-2"
         controlId="formBasicText"
@@ -56,7 +59,6 @@ const CountriesList = () => {
           Search your location for detail info.
         </Form.Text>
       </Form.Group>
-      <h2 className={styles.count}>{favoritesList.length}</h2>
 
       <div className={styles.countriesList}>
         {!loading ? (

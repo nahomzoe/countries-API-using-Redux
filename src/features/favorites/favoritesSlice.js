@@ -16,7 +16,7 @@ export const favoritesSlice = createSlice({
     },
     removeItem(state, action) {
       let filteredFav = state.favorites.filter(function(ele) {
-        return ele.cca3 != action.payload.cca3;
+        return ele.cca3 !== action.payload.cca3;
       });
       localStorage.setItem("favorites", JSON.stringify(filteredFav));
       return { ...state, favorites: filteredFav };

@@ -1,8 +1,8 @@
 import NavL from "./NavL";
-import React, { useState } from "react";
+import React from "react";
 
 const Header = () => {
-  const [showBasic, setShowBasic] = useState(false);
+  // const [showBasic, setShowBasic] = useState(false);
   return (
     <header>
       <div className="header">

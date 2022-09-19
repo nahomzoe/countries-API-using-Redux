@@ -11,7 +11,7 @@ import { ListGroup } from "react-bootstrap";
 
 const SingleCountry = () => {
   let location = useLocation();
-  const { latlng, name } = location.state;
+  const { latlng, name, capital } = location.state;
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -29,53 +29,58 @@ const SingleCountry = () => {
   }, [latlng]);
 
   return (
-    // <div style={{ margin: "2rem" }}>
-    //   <h1>How to use CardComponent in ReactJS?</h1>
-    //   <Card
-    //     style={{
-    //       width: 1300,
-    //       backgroundColor: "lightblue",
-    //     }}
-    //   >
-    //     <CardContent>
-    //       <Typography style={{ fontSize: 30 }} gutterBottom>
-    //         {name.common}
-    //       </Typography>
-    //       <Typography>
-    //         {weather && (
-    //           <h3 style={{ fontSize: 15 }}>
-    //             The weather in {name.common}
-    //             is {weather.main.temp}
-    //           </h3>
-    //         )}
-    //       </Typography>
-    //       <Typography
-    //         style={{
-    //           marginBottom: 12,
-    //         }}
-    //         color="textSecondary"
-    //       ></Typography>
-    //       <Typography variant="body2" component="p">
-    //         Stay Happy
-    //       </Typography>
-    //     </CardContent>
-    //     <CardActions>
-    //       <Button size="small">Stay Safe.....</Button>
-    //     </CardActions>
-    //   </Card>
-    // </div>
-    <div className={styles.recipe}>
-      <>
-        {weather && (
-          <h3>
-            The weather in {name.common} is {weather.main.temp}
-          </h3>
-        )}
-        <h2>
-          {latlng[0]},{latlng[1]},{name.common}
-        </h2>
-      </>
+    <div style={{ margin: "2rem" }}>
+      <h1> {name.common}</h1>
+      <Card
+        style={{
+          width: 1300,
+          backgroundColor: "lightblue",
+        }}
+      >
+        <CardContent>
+          <Typography style={{ fontSize: 30 }} gutterBottom>
+            {capital}
+          </Typography>
+          <Typography>
+            {weather && (
+              <h3 style={{ fontSize: 15 }}>Weather : {weather.main.temp}</h3>
+            )}
+          </Typography>
+
+          <img
+            src={`https://source.unsplash.com/featured/1600x900?${capital}`}
+          ></img>
+
+          <Typography variant="body2" component="p">
+            {weather && (
+              <ListGroup variant="flush">
+                {Object.entries(weather.main || {}).map((ele, value) => (
+                  <ListGroup.Item key={ele}>
+                    {ele}
+                    {value}
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
+            )}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Stay Safe.....</Button>
+        </CardActions>
+      </Card>
     </div>
+    // <div className={styles.recipe}>
+    //   <>
+    //     {weather && (
+    //       <h3>
+    //         The weather in {name.common} is {weather.main.temp}
+    //       </h3>
+    //     )}
+    //     <h2>
+    //       {latlng[0]},{latlng[1]},{name.common}
+    //     </h2>
+    //   </>
+    // </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import styles from "./CountryCard.module.css";
@@ -11,7 +11,11 @@ import { useState } from "react";
 import { HeartSwitch } from "@anatoliygatt/heart-switch";
 
 const CountryCard = ({ country, value }) => {
+  const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
+  const favoritesList = useSelector((state) => state.favorites.favorites);
+
+  useEffect(() => {}, [checked]);
 
   const {
     name,
@@ -23,8 +27,7 @@ const CountryCard = ({ country, value }) => {
     cca3,
     flags,
   } = country;
-  const dispatch = useDispatch();
-  const favoritesList = useSelector((state) => state.favorites.favorites);
+
   const isFav = favoritesList.find((item) => item.cca3 === country.cca3);
 
   return (
@@ -80,7 +83,7 @@ const CountryCard = ({ country, value }) => {
           onChange={(event) => {
             setChecked(event.target.checked);
             dispatch(addItem(country));
-            window.location.reload(false);
+            // window.location.reload(false);
           }}
         />
       )}
@@ -98,7 +101,8 @@ const CountryCard = ({ country, value }) => {
           onChange={(event) => {
             setChecked(event.target.checked);
             dispatch(removeItem(country));
-            window.location.reload(false);
+            /*             window.location.reload(false);
+             */
           }}
         />
       )}
