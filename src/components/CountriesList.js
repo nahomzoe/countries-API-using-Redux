@@ -37,7 +37,7 @@ const CountriesList = () => {
   return (
     <div>
       <div className={styles.count}>
-        <h2 className={styles.counth2}>{favoritesList.length}</h2>
+        <h2 className={styles.counth2}>Visited {favoritesList.length}</h2>
       </div>
       <Form.Group
         className="mb-1 col-md-8 offset-md-2"

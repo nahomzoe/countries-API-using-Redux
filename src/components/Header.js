@@ -1,4 +1,3 @@
-import NavL from "./NavL";
 import React from "react";
 
 const Header = () => {
@@ -23,7 +22,6 @@ const Header = () => {
             </div>
           </div>
         </header>
-        <NavL />
       </div>
     </header>
   );

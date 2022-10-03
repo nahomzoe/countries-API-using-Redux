@@ -20,18 +20,13 @@ h4 {
   height: 2rem;
 }
 .count {
-  margin: 1rem;
-
-  height: 100px;
-  width: 1400px;
-  border-radius: 50%;
-  background-color: rgb(120, 108, 64);
-}
-.counth2 {
   padding-top: 6rem;
   margin-top: 1rem;
-  text-align: center;
 
   border-radius: 10px;
-  background-color: rgb(221, 206, 142);
+  background-color: rgb(174, 194, 191);
+}
+.counth2 {
+  text-align: right;
+  margin-right: 3rem;
 }

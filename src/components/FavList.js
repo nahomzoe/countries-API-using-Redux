@@ -12,7 +12,7 @@ const FavList = () => {
   console.log(favoritesList);
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Favorite List</h1>
+      <h1 style={{ textAlign: "center", marginTop: "10rem" }}>Favorite List</h1>
       <div className={styles.favList}>
         {!loading ? (
           favoritesList &&

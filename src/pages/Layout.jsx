@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../components/Header";
+import NavL from "../components/NavL";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
 
 const Layout = () => {
   return (
     <>
-      <Header />
+      <NavL />
       <Main />
       <Footer />
     </>

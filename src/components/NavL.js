@@ -7,9 +7,9 @@ const NavL = () => {
       <nav>
         <div className="nav-content">
           <div className="logo">
-            <a href="#" className="nav-a">
+            <Link to="/" style={{ textDecoration: "none" }} className="nav-a">
               Countries App
-            </a>
+            </Link>
           </div>
           <ul className="nav-links">
             <li>

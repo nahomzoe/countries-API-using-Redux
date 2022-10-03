@@ -1,4 +1,4 @@
-.recipe {
+.single {
   max-width: 1200px;
   margin: 40px auto;
   text-align: center;
@@ -6,21 +6,21 @@
   padding: 40px;
   box-sizing: border-box;
 }
-.recipe ul {
+.single ul {
   display: flex;
   padding: 0;
   justify-content: center;
   margin-top: 0;
 }
-.recipe li {
+.single li {
   list-style-type: none;
   margin-right: 10px;
   color: rgb(165, 193, 110);
 }
-.recipe li::after {
+.single li::after {
   content: ",";
 }
-.recipe li:last-child::after {
+.single li:last-child::after {
   content: ".";
 }
 .method {
