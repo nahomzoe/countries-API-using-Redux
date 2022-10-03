@@ -10,10 +10,11 @@ const Header = () => {
             className="p-5 text-center bg-image"
             style={{
               backgroundImage:
-                "url('https://mdbootstrap.com/img/new/slides/041.webp')",
+                "url('https://images.unsplash.com/photo-1638291792853-5ab967de3611?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')",
               height: "400px",
             }}
           >
+            <h2>Country API - weather API</h2>
             <div
               className="mask"
               style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}

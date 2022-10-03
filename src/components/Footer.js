@@ -2,8 +2,6 @@ import React from "react";
 import {
   MDBFooter,
   MDBContainer,
-  MDBIcon,
-  MDBInput,
   MDBCol,
   MDBRow,
   MDBRipple,
@@ -24,6 +22,7 @@ export default function Footer() {
                 className="bg-image hover-overlay shadow-1-strong rounded"
               >
                 <img
+                  alt="city"
                   src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
                   className="w-100"
                 />
@@ -41,6 +40,7 @@ export default function Footer() {
                 className="bg-image hover-overlay shadow-1-strong rounded"
               >
                 <img
+                  alt="city"
                   src="https://mdbcdn.b-cdn.net/img/new/fluid/city/111.webp"
                   className="w-100"
                 />
@@ -58,6 +58,7 @@ export default function Footer() {
                 className="bg-image hover-overlay shadow-1-strong rounded"
               >
                 <img
+                  alt="city"
                   src="https://mdbcdn.b-cdn.net/img/new/fluid/city/112.webp"
                   className="w-100"
                 />
@@ -75,6 +76,7 @@ export default function Footer() {
                 className="bg-image hover-overlay shadow-1-strong rounded"
               >
                 <img
+                  alt="city"
                   src="https://mdbcdn.b-cdn.net/img/new/fluid/city/114.webp"
                   className="w-100"
                 />
@@ -92,6 +94,7 @@ export default function Footer() {
                 className="bg-image hover-overlay shadow-1-strong rounded"
               >
                 <img
+                  alt="city"
                   src="https://mdbcdn.b-cdn.net/img/new/fluid/city/115.webp"
                   className="w-100"
                 />
@@ -109,6 +112,7 @@ export default function Footer() {
                 className="bg-image hover-overlay shadow-1-strong rounded"
               >
                 <img
+                  alt="city"
                   src="https://mdbcdn.b-cdn.net/img/new/fluid/city/116.webp"
                   className="w-100"
                 />
