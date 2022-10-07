@@ -16,7 +16,7 @@ import {
   MDBCardSubTitle,
 } from "mdb-react-ui-kit";
 
-const CountryCard = ({ country, value }) => {
+const CountryCard = ({ country }) => {
   const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
   const favoritesList = useSelector((state) => state.favorites.favorites);
