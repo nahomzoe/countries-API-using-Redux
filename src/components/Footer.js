@@ -11,10 +11,13 @@ export default function Footer() {
   return (
     <MDBFooter
       className="text-center text-white"
-      style={{ backgroundColor: "#caced1" }}
+      style={{ backgroundColor: "black" }}
     >
       <MDBContainer className="p-4">
-        <section className="">
+        <section
+          className=""
+          style={{ backgroundColor: "black", marginBottom: "0rem" }}
+        >
           <MDBRow>
             <MDBCol lg="2" md="12" className="mb-4 mb-md-0">
               <MDBRipple
