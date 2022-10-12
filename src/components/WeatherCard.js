@@ -35,6 +35,7 @@ const WeatherCard = () => {
       >
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol md="10" lg="8" xl="6">
+            <h3>weather in Helsinki today</h3>
             <MDBCard
               className="bg-dark text-white"
               style={{ borderRadius: "40px" }}
